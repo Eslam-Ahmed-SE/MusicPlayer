@@ -10,7 +10,7 @@ var volume = document.getElementById("volume");
 var fullTime = document.getElementById("fullTime");
 var remainingOut = document.getElementById("remaining");
 var playlistTable = document.getElementById("playlistTable");
-var songs = [[],[],[],[],[],[]] 
+var songs = [...Array(6).keys()].map(i => Array(2)); 
 songs[0][0] = 'music/t1.mp3';
 songs[0][1] = 'Thunder - Imagin Dragons';
 songs[1][0] = 'music/t2.mp3';
@@ -54,10 +54,10 @@ function showPlaylist(){
 	text = /*"<table>"*/ " ";
 	for (i = 0; i < songsList; i++) {
 		if (i==indexR){
-			text += "<tr><td>$</td>" + "<td>" + songs[i][1] + "</td><tr>";
+			text += "<tr><td>$</td>" + "<td><a class='song' onclick='playWhere(" + i + ")'>" + songs[i][1] + "</a></td><tr>";
 		}
 	    else {
-	    	text += "<tr><td></td>" + "<td>" + songs[i][1] + "</td><tr>";
+	    	text += "<tr><td></td>" + "<td><a class='song' onclick='playWhere(" + i + ")'>" + songs[i][1] + "</a></td><tr>";
 	    }
 	}
 	/*text += "</table>";*/
@@ -85,6 +85,13 @@ function playNext(){
 	showPlaylist();
 }
 
+function playWhere(x){
+	indexR=x;
+	player.src = songs[indexR][0];
+	playAudio();
+	showPlaylist();
+}
+
 function playPrevious(){
 	if (indexR>0){
 		indexR=indexR-1;
@@ -105,6 +112,11 @@ player.ontimeupdate = function() {
 	var remaining = parseInt(player.duration) - currTime;
 	var remainingMin = 0;
 	var remainingSec = 0;
+
+	if(remaining==0){
+		playNext();
+	}
+
 
 	if (currTime>60){
 		currMin = parseInt(currTime/60);

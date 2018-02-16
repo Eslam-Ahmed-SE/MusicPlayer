@@ -61,4 +61,8 @@
     background: #4CAF50;
     cursor: pointer;
 }
-/*----------------------------------*/
+
+
+.song {
+    cursor: pointer;
+}
