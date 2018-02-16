@@ -3,8 +3,8 @@ var prev = document.getElementById("previous");
 var play = document.getElementById("play"); 
 var pause = document.getElementById("pause"); 
 var next = document.getElementById("next"); 
-var slider = document.getElementById("myRange");
-var output = document.getElementById("demo");
+var slider = document.getElementById("nowPlayingSlider");
+var output = document.getElementById("timeStamp");
 
 function setup() {
 	slider.max = player.duration;
