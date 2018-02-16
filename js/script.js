@@ -5,6 +5,8 @@ var pause = document.getElementById("pause");
 var next = document.getElementById("next"); 
 var slider = document.getElementById("nowPlayingSlider");
 var output = document.getElementById("timeStamp");
+var volumeSlider = document.getElementById("volumeSlider");
+var volume = document.getElementById("volume");
 
 function setup() {
 	slider.max = player.duration;
@@ -22,6 +24,8 @@ function pauseAudio() {
     play.style.display = "initial";
 }
 
+
+//---------time slider------------
 output.innerHTML = slider.value; // Display the default slider value
 
 player.ontimeupdate = function() {
@@ -44,3 +48,14 @@ slider.oninput = function() {
     output.innerHTML = this.value;
     player.currentTime = this.value;
 }
+//----------------------------------
+
+//---------volume slider------------
+volume.innerHTML = "Volume: " + volumeSlider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+volumeSlider.oninput = function() {
+    volume.innerHTML = "Volume: " + this.value;
+    player.volume = this.value/100;
+}
+//----------------------------------
