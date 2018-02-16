@@ -7,7 +7,7 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body>
+<body onload="setup()">
 	<h1>Music player</h1>
 	<audio controls id="player">
 		<source src="music/t2.mp3" type="audio/mpeg">
@@ -15,11 +15,22 @@
 	</audio>
 
 	<br>
+	
 	<button id="previous" onclick="playPrevious()">previous</button>
 	<button id="play" onclick="playAudio()">Play</button>
 	<button id="pause" onclick="pauseAudio()" style="display: none;">Pause</button>
 	<button id="next" onclick="playNext()">next</button>
 	
+	<br>
+
+	<div class="slidecontainer">
+		<p id="demo">halaluyaz</p>
+		<input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+	</div>
+	
+	
+
+
 	<script src="js/script.js"></script>
 </body>
 </html>
