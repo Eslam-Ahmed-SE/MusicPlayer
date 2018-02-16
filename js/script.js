@@ -140,6 +140,23 @@ player.ontimeupdate = function() {
 	else{
 		previous.disabled = false;
 	}
+
+	//-------------------
+
+	slider.max = player.duration;
+
+	var duration = parseInt(player.duration);
+	var durationMin = 0;
+	var durationSec = 0;
+
+	if (duration>60){
+		durationMin = parseInt(duration/60);
+		durationSec = duration-(durationMin*60);
+	}
+	else {
+		durationSec = duration;
+	}
+	fullTime.innerHTML = " / " + durationMin + ":" + durationSec;
 }
 
 // Update the current slider value (each time you drag the slider handle)
