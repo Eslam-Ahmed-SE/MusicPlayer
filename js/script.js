@@ -117,7 +117,6 @@ player.ontimeupdate = function() {
 		playNext();
 	}
 
-
 	if (currTime>60){
 		currMin = parseInt(currTime/60);
 		currSec = currTime-(currMin*60);
