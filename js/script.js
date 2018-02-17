@@ -54,10 +54,10 @@ function showPlaylist(){
 	text = /*"<table>"*/ " ";
 	for (i = 0; i < songsList; i++) {
 		if (i==indexR){
-			text += "<tr><td><i class='fas fa-volume-up'></i></td>" + "<td><a class='song' onclick='playWhere(" + i + ")'>" + songs[i][1] + "</a></td><tr>";
+			text += "<tr><td><i class='fas fa-volume-up'></i></td>" + "<td><a class='song' onclick='playWhere(" + i + ")'>" + songs[i][1] + "</a></td></tr>";
 		}
 	    else {
-	    	text += "<tr><td></td>" + "<td><a class='song' onclick='playWhere(" + i + ")'>" + songs[i][1] + "</a></td><tr>";
+	    	text += "<tr><td></td>" + "<td><a class='song' onclick='playWhere(" + i + ")'>" + songs[i][1] + "</a></td></tr>";
 	    }
 	}
 	/*text += "</table>";*/
