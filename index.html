@@ -5,6 +5,7 @@
 	<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body onload="setup()">
@@ -18,10 +19,10 @@
 	<table id="playlistTable" border="1"></table>
 	<br>
 	
-	<a id="previous" onclick="playPrevious()">previous</a>
-	<a id="play" onclick="playAudio()">Play</a>
-	<a id="pause" onclick="pauseAudio()" style="display: none;">Pause</a>
-	<a id="next" onclick="playNext()">next</a>
+	<a id="previous" onclick="playPrevious()"><i class="fas fa-backward"></i></a>
+	<a id="play" onclick="playAudio()"><i class="fas fa-play"></i></a>
+	<a id="pause" onclick="pauseAudio()" style="display: none;"><i class="fas fa-pause"></i></a>
+	<a id="next" onclick="playNext()"><i class="fas fa-forward"></i></a>
 
 	<!--
 	<button id="previous" onclick="playPrevious()">previous</button>
