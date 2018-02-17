@@ -94,10 +94,36 @@
     cursor: pointer;
 }
 
-#player, #pause {
+#player, #pause, #volume, #fullTime {
     display: none;
 }
 
-#playlistTable tbody tr:nth-child(odd) {
+/*#playlistTable tbody tr:nth-child(odd) {
    background-color: #f2f2f2;
+}*/
+
+#timeStamp {
+    display: inline-block;
+    width: 49%;
+    margin: 0;
 }
+
+#remaining {
+    display: inline-block;
+    text-align: right;
+    width: 49%;
+    margin: 0;
+}
+
+#controls {
+    margin: 0;
+    width: 100%;
+    padding: 1%;
+    text-align: center;
+    font-size: 3em;
+}
+
+#playlistTable tr {
+    border-top: 1;
+}
+

@@ -134,7 +134,7 @@ player.ontimeupdate = function() {
 	}
 
 	output.innerHTML = currMin + ":" + currSec;
-	remainingOut.innerHTML = "Remaining: -" + remainingMin + ":" + remainingSec;
+	remainingOut.innerHTML = "-" + remainingMin + ":" + remainingSec;
 	slider.value = currTime;
 
 	//------------

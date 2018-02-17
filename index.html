@@ -15,16 +15,7 @@
 	Your browser does not support the audio element.
 	</audio>
 
-	<br>
-	<table id="playlistTable"></table>
-	<br>
 	
-	<span id="controls">
-		<a id="previous" onclick="playPrevious()"><i class="fas fa-backward"></i></a>
-		<a id="play" onclick="playAudio()"><i class="fas fa-play"></i></a>
-		<a id="pause" onclick="pauseAudio()"><i class="fas fa-pause"></i></a>
-		<a id="next" onclick="playNext()"><i class="fas fa-forward"></i></a>
-	</span>
 	<!--
 	<button id="previous" onclick="playPrevious()">previous</button>
 	<button id="play" onclick="playAudio()">Play</button>
@@ -34,16 +25,30 @@
 	<br>
 
 	<div class="nowPlayingSliderContainer">
-		<p><span id="timeStamp">halaluyaz</span>	<span id="fullTime"> s</span></p>
-		<p><span id="remaining">Remaining: </span></p>
 		<input type="range" min="0" max="100" value="0" class="nowPlayingSlider" id="nowPlayingSlider">
+		<div id="times">	<div id="timeStamp">timeStamp</div>
+			<div id="fullTime">s</div>
+			<div id="remaining">Remaining: </div>
+		</div>
 	</div>
 	
+	<p id="controls">
+		<a id="previous" onclick="playPrevious()"><i class="fas fa-backward"></i></a>
+		&nbsp;&nbsp;
+		<a id="play" onclick="playAudio()"><i class="fas fa-play"></i></a>
+		<a id="pause" onclick="pauseAudio()"><i class="fas fa-pause"></i></a>
+		&nbsp;&nbsp;
+		<a id="next" onclick="playNext()"><i class="fas fa-forward"></i></a>
+	</p>
+
 	<div class="volumeSliderContainer">
 		<p id="volume">halaluyaz</p>
 		<input type="range" min="0" max="100" value="100" step="1" class="volumeSlider" id="volumeSlider">
 	</div>
 
+	<br>
+	<table id="playlistTable"></table>
+	<br>
 
 	<script src="js/script.js"></script>
 </body>
