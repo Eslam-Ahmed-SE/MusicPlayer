@@ -9,7 +9,6 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body onload="setup()">
-	<h1>Music player</h1>
 	<audio controls id="player">
 		<source src="music/t2.mp3" type="audio/mpeg">
 	Your browser does not support the audio element.
@@ -24,6 +23,9 @@
 	-->
 	<br>
 
+	<p id="info">
+		<img src="http://icons.iconarchive.com/icons/dtafalonso/yosemite-flat/512/Music-icon.png" id="albumArt"><br><br>
+	</p>
 	<div class="nowPlayingSliderContainer">
 		<input type="range" min="0" max="100" value="0" class="nowPlayingSlider" id="nowPlayingSlider">
 		<div id="times">	<div id="timeStamp">timeStamp</div>
@@ -32,6 +34,14 @@
 		</div>
 	</div>
 	
+	<p id="info">
+		<a id="songName">song</a>
+		<br>
+		<a id="artistName">artist</a>
+		-
+		<a id="albumName">album</a>
+	</p>
+
 	<p id="controls">
 		<a id="previous" onclick="playPrevious()"><i class="fas fa-backward"></i></a>
 		&nbsp;&nbsp;

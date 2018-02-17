@@ -10,19 +10,20 @@ var volume = document.getElementById("volume");
 var fullTime = document.getElementById("fullTime");
 var remainingOut = document.getElementById("remaining");
 var playlistTable = document.getElementById("playlistTable");
-var songs = [...Array(6).keys()].map(i => Array(2)); 
-songs[0][0] = 'music/t1.mp3';
-songs[0][1] = 'Thunder - Imagin Dragons';
-songs[1][0] = 'music/t2.mp3';
-songs[1][1] = 'Havana - Camilia Cabilo';
-songs[2][0] = 'music/t3.mp3';
-songs[2][1] = 'I Want You to Know (Ft. Selena Gomez) - Zedd';
-songs[3][0] = 'music/t4.mp3';
-songs[3][1] = 'Stay - Zedd & Alessia Cara';
-songs[4][0] = 'music/t5.mp3';
-songs[4][1] = 'Wolves - Selena Gomez & Marshmello';
-songs[5][0] = 'music/t6.mp3';
-songs[5][1] = 'It Aint Me - Selena Gomez & Kygo';
+var songName = document.getElementById("songName");
+var artistName = document.getElementById("artistName");
+var albumName = document.getElementById("albumName");
+var albumArt = document.getElementById("albumArt");
+
+var defaultIMG = 'http://icons.iconarchive.com/icons/dtafalonso/yosemite-flat/512/Music-icon.png';
+
+var songs = [...Array(6).keys()].map(i => Array(5)); 
+songs[0][0] = 'music/t1.mp3';	songs[0][1] = 'Thunder';									songs[0][2] = 'Imagin Dragons';			songs[0][3] = 'Evolve';			songs[0][4] = 'https://i.scdn.co/image/84989ed4cca6518fa540bb3c8a7a73127695e937';
+songs[1][0] = 'music/t2.mp3';	songs[1][1] = 'Havana';										songs[1][2] = 'Camilia Cabilo';			songs[1][3] = 'Camilia';		songs[1][4] = 'https://s30.postimg.org/faha0rzqp/camila_2.jpg';
+songs[2][0] = 'music/t3.mp3';	songs[2][1] = 'I Want You to Know (Ft. Selena Gomez)';		songs[2][2] = 'Zedd';					songs[2][3] = 'N/A';			songs[2][4] = defaultIMG;
+songs[3][0] = 'music/t4.mp3';	songs[3][1] = 'Stay (Ft. Alessia Cara)';					songs[3][2] = 'Zedd';					songs[3][3] = 'N/A';			songs[3][4] = defaultIMG;
+songs[4][0] = 'music/t5.mp3';	songs[4][1] = 'Wolves (Ft. Selena Gomez)';					songs[4][2] = 'Marshmello';				songs[4][3] = 'N/A';			songs[4][4] = defaultIMG;
+songs[5][0] = 'music/t6.mp3';	songs[5][1] = 'It Aint Me (Ft. Selena Gomez)';				songs[5][2] = 'Kygo';					songs[5][3] = 'N/A';			songs[5][4] = defaultIMG;
 var indexR = 0;
 var indexC = 0;
 
@@ -55,6 +56,7 @@ function showPlaylist(){
 	for (i = 0; i < songsList; i++) {
 		if (i==indexR){
 			text += "<tr><td><i class='fas fa-volume-up'></i></td>" + "<td><a class='song' onclick='playWhere(" + i + ")'>" + songs[i][1] + "</a></td></tr>";
+			setInfo(songs[i][1], songs[i][2], songs[i][3], songs[i][4]);
 		}
 	    else {
 	    	text += "<tr><td></td>" + "<td><a class='song' onclick='playWhere(" + i + ")'>" + songs[i][1] + "</a></td></tr>";
@@ -62,6 +64,13 @@ function showPlaylist(){
 	}
 	/*text += "</table>";*/
 	document.getElementById("playlistTable").innerHTML = text;
+}
+
+function setInfo(songN, artistN, albumN, albumA){
+	songName.innerHTML = songN;
+	artistName.innerHTML = artistN;
+	albumName.innerHTML = albumN;
+	albumArt.src = albumA;
 }
 
 function playAudio() { 
