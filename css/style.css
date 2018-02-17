@@ -106,13 +106,16 @@
     display: inline-block;
     width: 49%;
     margin: 0;
+    padding: 0;
+    padding-left: 0.5%;
 }
 
 #remaining {
     display: inline-block;
     text-align: right;
-    width: 49%;
+    width: 49.5%;
     margin: 0;
+    padding: 0;
 }
 
 #controls {
