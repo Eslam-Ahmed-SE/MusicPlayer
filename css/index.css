@@ -3,19 +3,39 @@ body {
     padding: 0;
 }
 
+.playingBar {
+  z-index: 99;
+}
 
+.page {
+  z-index: 0;
+}
 /*---------playing slider------------*/
+.nowPlayingSliderContainer {
+  background-color: white;
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+    
+}
+
 .nowPlayingSlider {
+  /*box-shadow: 0 0 8px rgba(0,0,0,.4);  */
     -webkit-appearance: none;
-    width: 100%;
+    width: 92.5%;
     height: 5px;
-    border-radius: 5px;   
+    /*border-radius: 20px;   */
     background: #E5E5E5/*#d3d3d3*/;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    margin: 0;
+    padding: 0;
 }
+
 
 .nowPlayingSlider:hover{
     background: #BBBBBB;
@@ -24,8 +44,8 @@ body {
 .nowPlayingSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 7.5px;
-    height: 7.5px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%; 
     background: #878787/*#4CAF50*/;
     cursor: pointer;
@@ -33,8 +53,8 @@ body {
 
 .nowPlayingSlider::-webkit-slider-thumb:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
-    width: 10px;
-    height: 10px;
+    width: 17px;
+    height: 17px;
 }
 
 .nowPlayingSlider::-moz-range-thumb {
@@ -53,9 +73,11 @@ body {
 
 /*---------volume slider------------*/
 .volumeSlider {
+  margin-left: 20%;
+  text-align: right;
     -webkit-appearance: none;
-    width: 100%;
-    height: 5px;
+    width: 15%;
+    height: 2.5px;
     border-radius: 5px;   
     background: #DFDFDF/*#d3d3d3*/;
     outline: none;
@@ -71,8 +93,8 @@ body {
 .volumeSlider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
+    width: 15px;
+    height: 15px;
     border-radius: 50%; 
     background: white/*#4CAF50*/;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
@@ -110,7 +132,7 @@ body {
 
 #timeStamp {
     display: inline-block;
-    width: 49%;
+    width: 45%;
     margin: 0;
     padding: 0;
     padding-left: 0.5%;
@@ -119,32 +141,51 @@ body {
 #remaining {
     display: inline-block;
     text-align: right;
-    width: 49.5%;
+    width: 45%;
     margin: 0;
     padding: 0;
 }
 
-#info {
-    margin: 0;
-    width: 100%;
-    padding: 1%;
-    text-align: center;
-    font-size: 2em;
-}
-#info img {
-    width: 300px;
-    border-radius: 20px;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 4px 40px 0 rgba(0, 0, 0, 0.4);
-}
-
-#controls {
-    margin: 0;
-    width: 100%;
-    padding: 1%;
-    text-align: center;
-    font-size: 3em;
-}
-
 #playlistTable tr {
     border-top: 1;
+}
+.playingBar {
+  overflow: hidden;
+  background-color: white;/*#333;*/
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.playingBar img {
+    width: 7.5%;
+    box-shadow: -5px 0 8px rgba(0,0,0,.4)
+}
+
+#albumArt {
+  margin-top: 10px;
+    float: left;
+}
+
+#songName {
+  font-size: 1.5em;
+}
+
+#info {
+  margin: 0;
+  display: inline-block;
+  width: 30%;
+}
+
+#artistName, #albumName, #dash {
+  font-size: 1.2em;
+  opacity: 0.70;
+}
+
+#controlButtons {
+  margin: 0;
+  font-size: 1.8em;
+  text-align: center;
+  display: inline-block;
+  width: 20%;
 }
