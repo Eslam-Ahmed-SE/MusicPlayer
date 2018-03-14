@@ -65,8 +65,8 @@ $(document).ready(
 );
 
 window.addEventListener("keydown", function (event) {
-  console.log(event.key);
-  console.log(event.which);
+  /*console.log(event.key); for debug
+  console.log(event.which); for debug*/
   if (event.which == 177){
   	playPrevious();
   }
@@ -193,37 +193,6 @@ $("#submitButton").click(function() {
     return false; // avoid to execute the actual submit of the form.
 });
 
-
-submitSignUp.onclick = function () {
-  // Form is invalid!
-  if (!signup.checkValidity()) {
-    // Create the temporary button, click and remove it
-    const tmpSubmit = document.createElement('button')
-    signup.appendChild(tmpSubmit)
-    tmpSubmit.click()
-    signup.removeChild(tmpSubmit)
-
-  } else {
-    addUsr();
-  }
-  return false;
-}
-
-/*submitSignIn.onclick = function () {
-  // Form is invalid!
-  if (!signin.checkValidity()) {
-    // Create the temporary button, click and remove it
-    const tmpSubmit = document.createElement('button')
-    signin.appendChild(tmpSubmit)
-    tmpSubmit.click()
-    signin.removeChild(tmpSubmit)
-
-  } else {
-    signin();
-  }
-  return false;
-}*/
-
 function showSignUp(){
 	signupdiv.style.display = "initial";
 	signChoice.style.display = "none";
@@ -256,23 +225,6 @@ function addUsr(){
 
     return false;
 }
-
-/*function signin() {
-	var url = "signin.php"; // the script where you handle the form input.
-
-    $.ajax({
-           type: "POST",
-           url: url,
-           data: $("form").serialize(), // serializes the form's elements.
-           success: function(data)
-           {
-               	$( '#respond' ).html(data); // show response from the php script.               	
-
-           }
-         });
-
-    return false;
-}*/
 
 function searchChange(){
 
