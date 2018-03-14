@@ -10,67 +10,321 @@ var volume = document.getElementById("volume");
 var fullTime = document.getElementById("fullTime");
 var remainingOut = document.getElementById("remaining");
 var playlistTable = document.getElementById("playlistTable");
+var records = playlistTable.rows.length;
+var index = 1 ;
 var songName = document.getElementById("songName");
 var artistName = document.getElementById("artistName");
 var albumName = document.getElementById("albumName");
 var albumArt = document.getElementById("albumArt");
+var playlistTable = document.getElementById("playlistTable");
+
+var signup = document.getElementById("signup");
+var submitSignUp = document.getElementById("submitSignUp");
+
+var body1 = document.getElementById("body1");
+var body2 = document.getElementById("body2");
+var body3 = document.getElementById("body3");
+
+var signupdiv = document.getElementById("signupdiv");
+var signindiv = document.getElementById("signindiv");
+var signChoice = document.getElementById("signChoice");
+
+var bodyChanged = 0;
 
 var defaultIMG = 'http://icons.iconarchive.com/icons/dtafalonso/yosemite-flat/512/Music-icon.png';
+var search = 0;
 
-var songs = [...Array(6).keys()].map(i => Array(5)); 
-songs[0][0] = 'music/t1.mp3';	songs[0][1] = 'Thunder';									songs[0][2] = 'Imagin Dragons';			songs[0][3] = 'Evolve';			songs[0][4] = 'https://i.scdn.co/image/84989ed4cca6518fa540bb3c8a7a73127695e937';
-songs[1][0] = 'music/t2.mp3';	songs[1][1] = 'Havana';										songs[1][2] = 'Camilia Cabilo';			songs[1][3] = 'Camilia';		songs[1][4] = 'https://s30.postimg.org/faha0rzqp/camila_2.jpg';
-songs[2][0] = 'music/t3.mp3';	songs[2][1] = 'I Want You to Know (Ft. Selena Gomez)';		songs[2][2] = 'Zedd';					songs[2][3] = 'N/A';			songs[2][4] = defaultIMG;
-songs[3][0] = 'music/t4.mp3';	songs[3][1] = 'Stay (Ft. Alessia Cara)';					songs[3][2] = 'Zedd';					songs[3][3] = 'N/A';			songs[3][4] = defaultIMG;
-songs[4][0] = 'music/t5.mp3';	songs[4][1] = 'Wolves (Ft. Selena Gomez)';					songs[4][2] = 'Marshmello';				songs[4][3] = 'N/A';			songs[4][4] = defaultIMG;
-songs[5][0] = 'music/t6.mp3';	songs[5][1] = 'It Aint Me (Ft. Selena Gomez)';				songs[5][2] = 'Kygo';					songs[5][3] = 'N/A';			songs[5][4] = defaultIMG;
-var indexR = 0;
-var indexC = 0;
+function changeBody2(){
+	if (bodyChanged == 0) {
+		body1.style.display = "none";
+		body2.style.display = "initial";
+		bodyChanged=1;
+	}
+}
 
-player.src = songs[indexR][indexC];
+function changeBody3(){
+	if (bodyChanged == 0) {
+		body1.style.display = "none";
+		body3.style.display = "initial";
+		bodyChanged=1;
+	}
+}
+
+function defaultBody(){
+	if (bodyChanged == 1) {
+		body2.style.display = "none";
+		body3.style.display = "none";
+		body1.style.display = "initial";
+		bodyChanged=0;
+	}
+}
 
 
-function setup() {
-	showPlaylist();
-	slider.max = player.duration;
+$(document).ready(
+	tableView()
+);
 
-	var duration = parseInt(player.duration);
-	var durationMin = 0;
-	var durationSec = 0;
+window.addEventListener("keydown", function (event) {
+  console.log(event.key);
+  console.log(event.which);
+  if (event.which == 177){
+  	playPrevious();
+  }
+  else if (event.which == 176){
+  	playNext();
+  }
+  else if (event.which == 179){
+	  if (player.duration > 0 && !player.paused) {
+	  	pauseAudio();
+	  } 
+	  else {
+	  	playAudio();
+	  }
+  }
 
-	if (duration>60){
-		durationMin = parseInt(duration/60);
-		durationSec = duration-(durationMin*60);
+}, true);
+
+
+
+function playedCounter(id)
+{
+	
+ if(id)
+ {
+  $.ajax({
+  type: 'post',
+  url: 'playedCounter.php',
+  data: {
+   song_id:id,
+  },
+  success: function (response) {
+   // We get the element having id of display_info and put the response inside it
+   $( '#display_info' ).html(response);
+  }
+  });
+ }
+	
+ else
+ {
+  $( '#display_info' ).html("Please Enter Some Words");
+ }
+}
+
+
+
+
+function playlistTableSwitch() {
+	if (playlistTable.style.display == "none"){
+		playlistTable.style.display = "table";
 	}
 	else {
-		durationSec = duration;
+		playlistTable.style.display = "none";
 	}
-	fullTime.innerHTML = " / " + durationMin + ":" + durationSec; // Display the default slider value
+
 }
 
-function showPlaylist(){
-	var text, i;
+$("#returnHome").click(function() {
 
-	songsList = songs.length;
-	text = /*"<table>"*/ " ";
-	for (i = 0; i < songsList; i++) {
-		if (i==indexR){
-			text += "<tr><td><i class='fas fa-volume-up'></i></td>" + "<td><a class='song' onclick='playWhere(" + i + ")'>" + songs[i][1] + "</a></td></tr>";
-			setInfo(songs[i][1], songs[i][2], songs[i][3], songs[i][4]);
-		}
-	    else {
-	    	text += "<tr><td></td>" + "<td><a class='song' onclick='playWhere(" + i + ")'>" + songs[i][1] + "</a></td></tr>";
-	    }
-	}
-	/*text += "</table>";*/
-	document.getElementById("playlistTable").innerHTML = text;
+    search =0;
+
+    tableView();
+
+    return false; // avoid to execute the actual submit of the form.
+});
+
+function tableView(){
+
+  $.ajax({
+  type: 'post',
+  url: 'tableView.php',
+  data: {},
+  success: function (response) {
+  	if (search==0){
+	   // We get the element having id of display_info and put the response inside it
+	   $( '#playlistTable' ).html("<tr><td></td><td>Name</td><td>Played</td></tr>");
+	   $( '#playlistTable' ).append(response);
+	   $( '#playlistTable' ).append(
+               		/*"<tr><td style='color: green; background-color: #f2f2f2;'></td><td style='color: green; background-color: #f2f2f2; text-align: center;' colspan='4' rowspan='2'><a href='add-new.php' style='text-decoration: none;color: green;' > <i class='fas fa-plus-circle'></i> Add new song</a></td><td style='color: green; background-color: #f2f2f2;'></td></tr> <tr><td style='color: green; background-color: #f2f2f2;'></td><td style='color: green; background-color: #f2f2f2;'></td></tr>"*/
+               		"<tr><td></td><td rowspan='2'><a href='add-new.php' style='text-decoration: none;' > <i class='fas fa-plus-circle'></i> Add new song</a></td><td></td></tr> <tr><td></td><td></td></tr>"
+               	);
+	   $( '#ico'+index ).html("<i class='fas fa-volume-up'></i>");
+  	}
+  }
+  });
+
+  /*document.getElementById("ico"+index).innerHTML = "<i class='fas fa-volume-up'></i>";*/
+$.ajax({
+  type: 'post',
+  url: 'suggestions.php',
+  data: {},
+  success: function (response) {
+	   // We get the element having id of display_info and put the response inside it
+	   $( '#datalist' ).html(response);
+	     }
+  });
+
 }
 
-function setInfo(songN, artistN, albumN, albumA){
+
+$("#submitButton").click(function() {
+
+    var url = "searchFun.php"; // the script where you handle the form input.
+    search =1;
+
+    $.ajax({
+           type: "GET",
+           url: url,
+           data: $("form").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+           		$( '#playlistTable' ).html("<tr><td></td><td>Name</td><td>Played</td></tr>");
+               	$( '#playlistTable' ).append(data); // show response from the php script.
+               	$( '#playlistTable' ).append(
+               		/*"<tr><td style='color: green; background-color: #f2f2f2;'></td><td style='color: green; background-color: #f2f2f2; text-align: center;' colspan='4' rowspan='2'><a href='add-new.php' style='text-decoration: none;color: green;' > <i class='fas fa-plus-circle'></i> Add new song</a></td><td style='color: green; background-color: #f2f2f2;'></td></tr> <tr><td style='color: green; background-color: #f2f2f2;'></td><td style='color: green; background-color: #f2f2f2;'></td></tr>"*/
+               		"<tr><td></td><td rowspan='2'><a href='add-new.php' style='text-decoration: none;' > <i class='fas fa-plus-circle'></i> Add new song</a></td><td></td></tr> <tr><td></td><td></td></tr>"
+               	); // show response from the php script.
+               	$( '#ico'+index ).html("<i class='fas fa-volume-up'></i>");
+
+               	
+
+           }
+         });
+
+    return false; // avoid to execute the actual submit of the form.
+});
+
+
+submitSignUp.onclick = function () {
+  // Form is invalid!
+  if (!signup.checkValidity()) {
+    // Create the temporary button, click and remove it
+    const tmpSubmit = document.createElement('button')
+    signup.appendChild(tmpSubmit)
+    tmpSubmit.click()
+    signup.removeChild(tmpSubmit)
+
+  } else {
+    addUsr();
+  }
+  return false;
+}
+
+/*submitSignIn.onclick = function () {
+  // Form is invalid!
+  if (!signin.checkValidity()) {
+    // Create the temporary button, click and remove it
+    const tmpSubmit = document.createElement('button')
+    signin.appendChild(tmpSubmit)
+    tmpSubmit.click()
+    signin.removeChild(tmpSubmit)
+
+  } else {
+    signin();
+  }
+  return false;
+}*/
+
+function showSignUp(){
+	signupdiv.style.display = "initial";
+	signChoice.style.display = "none";
+}
+
+function showSignIn(){
+	signindiv.style.display = "initial";
+	signChoice.style.display = "none";
+}
+
+function showSignOptions(){
+	signChoice.style.display = "initial";
+	signindiv.style.display = "none";
+	signupdiv.style.display = "none";
+}
+
+function addUsr(){
+	var url = "signup.php"; // the script where you handle the form input.
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $("form").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               	$( '#respond' ).html(data); // show response from the php script.               	
+
+           }
+         });
+
+    return false;
+}
+
+/*function signin() {
+	var url = "signin.php"; // the script where you handle the form input.
+
+    $.ajax({
+           type: "POST",
+           url: url,
+           data: $("form").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               	$( '#respond' ).html(data); // show response from the php script.               	
+
+           }
+         });
+
+    return false;
+}*/
+
+function searchChange(){
+
+
+    var url = "searchFun.php"; // the script where you handle the form input.
+    search =1;
+
+    $.ajax({
+           type: "GET",
+           url: url,
+           data: $("form").serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+           		// show response from the php script.
+           		$( '#playlistTable' ).html("<tr><td></td><td>Name</td><td>Played</td></tr>");
+               	$( '#playlistTable' ).append(data);
+               	$( '#playlistTable' ).append(
+               		"<tr><td></td><td rowspan='2'><a href='add-new.php' style='text-decoration: none;' > <i class='fas fa-plus-circle'></i> Add new song</a></td><td></td></tr> <tr><td></td><td></td></tr>"
+               	);
+               	$( '#ico'+index ).html("<i class='fas fa-volume-up'></i>");
+
+               	
+
+           }
+         });
+
+    return false; // avoid to execute the actual submit of the form.
+}
+
+function setInfo(songN, artistN, albumN, albumA,id){
 	songName.innerHTML = songN;
 	artistName.innerHTML = artistN;
 	albumName.innerHTML = albumN;
 	albumArt.src = albumA;
+
+	document.body.style = "position: absolute;top: 0; bottom: 0; left: 0; right: 0;height: 100%;";
+	$('head').append("<style> body:before{"+
+		"content: '';"+
+    "position: fixed;"+
+	"background: url('" + albumA +"');"+
+	"background-size: cover;"+
+    "z-index: -1; /* Keep the background behind the content */"+
+    "height: 45%; width: 35%; /* Using Glen Maddern's trick /via @mente */"+
+    "/* don't forget to use the prefixes you need */"+
+    "transform: scale(5);"+
+    "transform-origin: top left;"+
+    "filter: blur(5px);"+
+    "margin-top: -50%;"+
+    "margin-left: -50%;"+
+
+		"}</style>");
+	index = id;
 }
 
 function playAudio() { 
@@ -86,28 +340,39 @@ function pauseAudio() {
 }
 
 function playNext(){
-	if (indexR<songs.length-1){
-		indexR=indexR+1;
-		player.src = songs[indexR][0];
-		playAudio();
+	if (document.getElementById(index+1) != null){
+		document.getElementById(index+1).click();
 	}
-	showPlaylist();
+	else if (index>records){
+		document.getElementById(1).click();
+	}
+	else {
+		index+=1;
+		playNext();
+	}
 }
 
-function playWhere(x){
-	indexR=x;
-	player.src = songs[indexR][0];
+function playThis(link,song,artist,album,albumA,id){
+	player.src = link;
 	playAudio();
-	showPlaylist();
+	setInfo(song,artist,album,albumA,id);
+	playedCounter(id);
+	/*resetIco();*/
+	tableView();
+	$( '#ico'+index ).html("<i class='fas fa-volume-up'></i>");
+	
+}
+
+function resetIco(){
+	var i = 0;
+	while(i<records){
+		document.getElementById("playlistTable").rows[i].cells[0].innerHTML = " ";
+		i++;
+	}
 }
 
 function playPrevious(){
-	if (indexR>0){
-		indexR=indexR-1;
-		player.src = songs[indexR][0];
-		playAudio();
-	}
-	showPlaylist();
+	document.getElementById(index-1).click();
 }
 
 //---------time slider------------
@@ -147,14 +412,14 @@ player.ontimeupdate = function() {
 	slider.value = currTime;
 
 	//------------
-	if (indexR==songs.length-1){
+	if (index==records){
 		next.disabled = true;
 	}
 	else {
 		next.disabled = false;
 	}
 
-	if (indexR==0){
+	if (index==0){
 		previous.disabled = true;
 	}
 	else{
@@ -195,6 +460,4 @@ volumeSlider.oninput = function() {
     player.volume = this.value/100;
 }
 //----------------------------------
-
-
 

@@ -5,7 +5,7 @@ body {
 
 
 /*---------playing slider------------*/
-.nowPlayingSlider {
+.nowPlayingSliderFull {
     -webkit-appearance: none;
     width: 100%;
     height: 5px;
@@ -15,13 +15,14 @@ body {
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    display: none;
 }
 
-.nowPlayingSlider:hover{
+.nowPlayingSliderFull:hover{
     background: #BBBBBB;
 }
 
-.nowPlayingSlider::-webkit-slider-thumb {
+.nowPlayingSliderFull::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 7.5px;
@@ -31,13 +32,13 @@ body {
     cursor: pointer;
 }
 
-.nowPlayingSlider::-webkit-slider-thumb:hover {
+.nowPlayingSliderFull::-webkit-slider-thumb:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
     width: 10px;
     height: 10px;
 }
 
-.nowPlayingSlider::-moz-range-thumb {
+.nowPlayingSliderFull::-moz-range-thumb {
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -45,14 +46,14 @@ body {
     cursor: pointer;
 }
 
-.nowPlayingSlider::-moz-range-thumb:hover {
+.nowPlayingSliderFull::-moz-range-thumb:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 0px 20px 0 rgba(0, 0, 0, 0.38);
 }
 /*----------------------------------*/
 
 
 /*---------volume slider------------*/
-.volumeSlider {
+.volumeSliderFull {
     -webkit-appearance: none;
     width: 100%;
     height: 5px;
@@ -64,11 +65,11 @@ body {
     transition: opacity .2s;
 }
 
-.volumeSlider:hover{
+.volumeSliderFull:hover{
     background: #BDBDBD;
 }
 
-.volumeSlider::-webkit-slider-thumb {
+.volumeSliderFull::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 25px;
@@ -79,11 +80,11 @@ body {
     cursor: pointer;
 }
 
-.volumeSlider::-webkit-slider-thumb:hover {
+.volumeSliderFull::-webkit-slider-thumb:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 0px 20px 0 rgba(0, 0, 0, 0.38);
 }
 
-.volumeSlider::-moz-range-thumb {
+.volumeSliderFull::-moz-range-thumb {
     width: 25px;
     height: 25px;
     border-radius: 50%;
@@ -92,23 +93,15 @@ body {
     cursor: pointer
 }
 
-.volumeSlider::-moz-range-thumb:hover {
+.volumeSliderFull::-moz-range-thumb:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4), 0 0px 20px 0 rgba(0, 0, 0, 0.38);
 }
 
-.song {
-    cursor: pointer;
-}
-
-#player, #pause, #volume, #fullTime {
+#player, #pauseFull, #volumeFull, #fullTimeFull {
     display: none;
 }
 
-/*#playlistTable tbody tr:nth-child(odd) {
-   background-color: #f2f2f2;
-}*/
-
-#timeStamp {
+#timeStampFull {
     display: inline-block;
     width: 49%;
     margin: 0;
@@ -116,7 +109,7 @@ body {
     padding-left: 0.5%;
 }
 
-#remaining {
+#remainingFull {
     display: inline-block;
     text-align: right;
     width: 49.5%;
@@ -124,27 +117,24 @@ body {
     padding: 0;
 }
 
-#info {
+#infoFull {
     margin: 0;
     width: 100%;
-    padding: 1%;
+    padding: 0%;
+    padding-right: 0;
     text-align: center;
     font-size: 2em;
 }
-#info img {
+#infoFull img {
     width: 300px;
     border-radius: 20px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.4), 0 4px 40px 0 rgba(0, 0, 0, 0.4);
 }
 
-#controls {
+#controlsFull {
     margin: 0;
     width: 100%;
-    padding: 1%;
+    padding: 0%;
     text-align: center;
     font-size: 3em;
-}
-
-#playlistTable tr {
-    border-top: 1;
 }
