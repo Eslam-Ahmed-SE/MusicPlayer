@@ -38,13 +38,16 @@
 
 	echo $sql;
 
-	$i = 0;
+	$i = 1;
 
 	if ($result->num_rows > 0) {
 	    // output data of each row
-	    unset($playlists); // $foo is gone
-		$playlists = array(); // $foo is here again
-	    echo "<tr>";
+	    echo "<tr>".
+	    		"<td>".
+	    		"<a class='playlist' onclick='tableView(0)'>" 
+	    			. "<span id='playlistICO'>All</span>".
+	    		"</a>" .
+	    	"</td>";
 	    while($row = $result->fetch_assoc()) {
 	    	if ($i == 2) {
 	    		echo "</tr><tr>";
@@ -69,7 +72,11 @@
 		</tr>";
 	} 
 	else {
-	    echo "0 results";
+	    echo "<td>".
+	    		"<a class='playlist' onclick='tableView()'>" 
+	    			. "<span id='playlistICO'>All</span>".
+	    		"</a>" .
+	    	"</td>";
 	}
 
 

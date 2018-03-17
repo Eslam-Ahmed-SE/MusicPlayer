@@ -8,7 +8,12 @@
 
 		if (isset($_POST["playlistID"]) && isset($_SESSION['signedin'])){
 			$playlistID = test_input($_POST["playlistID"]);
-			$sql = "SELECT * FROM playlist_elements INNER JOIN songs ON playlist_elements.songID=songs.id WHERE playlistID=" . $playlistID;
+			if ($playlistID>0) {
+				$sql = "SELECT * FROM playlist_elements INNER JOIN songs ON playlist_elements.songID=songs.id WHERE playlistID=" . $playlistID;
+			}
+			else {
+				$sql = "SELECT * FROM songs;";
+			}
 		}
 		else $sql = "SELECT * FROM songs;";
 
