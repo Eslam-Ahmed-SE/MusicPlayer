@@ -29,7 +29,7 @@ if(!isset($_SESSION['signedin'])){
 				<datalist id="datalist">
 				</datalist>
 				<button type="button" id="about" onclick='changeBody3()'
-							style='	background: #f0f0f0 url( <?php echo "'" . $_SESSION["img"]; . "'" ?>) 0px 0px; 
+							style='	background: #f0f0f0 url( <?php echo "'" . $_SESSION["img"] . "'"; ?>) 0px 0px; 
 									background-size: 30px 30px;
 									border-radius:50%;'>
 				
