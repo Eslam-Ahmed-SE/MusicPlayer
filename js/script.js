@@ -132,16 +132,16 @@ $("#returnHome").click(function() {
     return false; // avoid to execute the actual submit of the form.
 });
 
-function tableView(){
+function tableView(playlistID){
 
   $.ajax({
   type: 'post',
   url: 'tableView.php',
-  data: {},
+  data: {playlistID:playlistID,},
   success: function (response) {
   	if (search==0){
 	   // We get the element having id of display_info and put the response inside it
-	   $( '#playlistTable' ).html("<tr><td></td><td>Name</td><td>Played</td></tr>");
+	   $( '#playlistTable' ).html("<tr><td><a onclick='playlistView()'> <i class='fas fa-arrow-left'></i> </a></td><td>Name</td><td>Played</td></tr>");
 	   $( '#playlistTable' ).append(response);
 	   $( '#playlistTable' ).append(
                		/*"<tr><td style='color: green; background-color: #f2f2f2;'></td><td style='color: green; background-color: #f2f2f2; text-align: center;' colspan='4' rowspan='2'><a href='add-new.php' style='text-decoration: none;color: green;' > <i class='fas fa-plus-circle'></i> Add new song</a></td><td style='color: green; background-color: #f2f2f2;'></td></tr> <tr><td style='color: green; background-color: #f2f2f2;'></td><td style='color: green; background-color: #f2f2f2;'></td></tr>"*/
@@ -174,7 +174,7 @@ function playlistView(){
   success: function (response) {
     if (search==0){
      // We get the element having id of display_info and put the response inside it
-     $( '#playlistTable' ).html("<tr><td style='border-bottom: 1px solid rgba(255, 255, 255, 0.25) ;'>img</td><td>name</td></tr>");
+     $( '#playlistTable' ).html("<tr><td style='border-bottom: 1px solid rgba(255, 255, 255, 0.25) ;'>PlayLists</td><td></td></tr>");
      $( '#playlistTable' ).append(response);
     }
   }
@@ -327,18 +327,17 @@ function playThis(link,song,artist,album,albumA,id){
 	playAudio();
 	setInfo(song,artist,album,albumA,id);
 	playedCounter(id);
-	/*resetIco();*/
-	tableView();
+	resetIco();
+	/*tableView();*/
 	$( '#ico'+index ).html("<i class='fas fa-volume-up'></i>");
 	
 }
 
 function resetIco(){
-	var i = 0;
-	while(i<records){
-		document.getElementById("playlistTable").rows[i].cells[0].innerHTML = " ";
-		i++;
-	}
+  for (var i = 1; i < playlistTable.rows.length; i++) {
+    var firstCol = playlistTable.rows[i].cells[0]; //second column
+    firstCol.innerHTML = ' '; // or anything you want to do with first col
+  }
 }
 
 function playPrevious(){

@@ -226,12 +226,13 @@ audio#player {
 #playlistICO {
     display: inline-block;
     text-align: center;
-    width: 50px;
-    height: 35px;
-    background-color: rgb(155,55,255);
+    width: 150px;
+    height: 85px;
+    /*background-color: rgb(155,55,255);*/
+    border: 2px solid rgba(255, 255, 255, 0.8);
     color: white;
-    padding-top: 15px;
-    margin-left: 20px;
+    padding-top: 65px;
+    margin-left: 45px;
     font-weight: bold;
     text-transform: uppercase;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);

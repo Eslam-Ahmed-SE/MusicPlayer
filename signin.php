@@ -9,8 +9,8 @@ $pass = $email = $respond ="";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $signedin = 0;
-  $pass = test_input($_POST["pass"]);
-  $email = test_input($_POST["email"]);
+  $pass = test_input($_POST["passIN"]);
+  $email = test_input($_POST["emailIN"]);
   
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);

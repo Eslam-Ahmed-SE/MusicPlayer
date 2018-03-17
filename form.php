@@ -94,12 +94,12 @@
 					<table>
 						<tr>
 							<td>E mail: </td>
-							<td><input id='email' type='email' name='email' placeholder='E-Mail' required></td>
+							<td><input id='emailIN' type='email' name='emailIN' placeholder='E-Mail' required></td>
 						</tr>
 						
 						<tr>
 							<td>Password: </td>
-							<td><input id='pass' type='password' name='pass' placeholder='Password' required autocomplete='new-password'></td>
+							<td><input id='passIN' type='password' name='passIN' placeholder='Password' required autocomplete='new-password'></td>
 						</tr>
 						
 						<tr>

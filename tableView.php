@@ -6,7 +6,7 @@
 		$password = "";
 		$dbname = "player";
 
-		if (isset($_POST["playlistID"])){
+		if (isset($_POST["playlistID"]) && isset($_SESSION['signedin'])){
 			$playlistID = test_input($_POST["playlistID"]);
 			$sql = "SELECT * FROM playlist_elements INNER JOIN songs ON playlist_elements.songID=songs.id WHERE playlistID=" . $playlistID;
 		}
