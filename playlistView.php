@@ -16,18 +16,17 @@
 	if ($conn->connect_error) {
 	    die("Connection failed: " . $conn->connect_error);
 	} 
-
-	$sql0 = "SELECT * FROM playlists where owner='" . $_SESSION["userID"] . "';" ;
+	$sql = "SELECT * FROM playlists where owner=" . $_SESSION["userID"] . ";" ;
 	$result = $conn->query($sql);
 
+	echo $sql;
+	
 	if ($result->num_rows > 0) {
 	    // output data of each row
 	    unset($playlists); // $foo is gone
 		$playlists = array(); // $foo is here again
 	    while($row = $result->fetch_assoc()) {
-	    	int i=0;
-	    	$playlists[0][i] = $row["playlistID"];
-	    	$playlists[1][i] = $row["name"];
+	    	
 	    	echo 
 	    	"<tr>".
 	    	"<td>".

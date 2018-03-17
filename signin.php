@@ -33,7 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION["sex"] = $row["sex"];
                 $_SESSION["email"] = $row["email"];
                 $_SESSION["img"] = $row["img"];
-                $_SESSION['userID']=$userID;
                 $_SESSION["signedin"] = 1;
                 header("Location: index.php");
               }

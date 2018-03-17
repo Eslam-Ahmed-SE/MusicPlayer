@@ -61,7 +61,7 @@ function defaultBody(){
 
 
 $(document).ready(
-	tableView()
+	playlistView()
 );
 
 window.addEventListener("keydown", function (event) {
@@ -165,6 +165,24 @@ $.ajax({
 
 }
 
+function playlistView(){
+
+  $.ajax({
+  type: 'post',
+  url: 'playlistView.php',
+  data: {},
+  success: function (response) {
+    if (search==0){
+     // We get the element having id of display_info and put the response inside it
+     $( '#playlistTable' ).html("<tr><td></td><td>img</td><td>name</td></tr>");
+     $( '#playlistTable' ).append(response);
+    }
+  }
+  });
+
+  /*document.getElementById("ico"+index).innerHTML = "<i class='fas fa-volume-up'></i>";*/
+
+}
 
 $("#submitButton").click(function() {
 
