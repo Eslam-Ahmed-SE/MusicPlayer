@@ -174,7 +174,7 @@ function playlistView(){
   success: function (response) {
     if (search==0){
      // We get the element having id of display_info and put the response inside it
-     $( '#playlistTable' ).html("<tr><td></td><td>img</td><td>name</td></tr>");
+     $( '#playlistTable' ).html("<tr><td style='border-bottom: 1px solid rgba(255, 255, 255, 0.25) ;'>img</td><td>name</td></tr>");
      $( '#playlistTable' ).append(response);
     }
   }
