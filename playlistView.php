@@ -20,7 +20,7 @@
 	$result = $conn->query($sql);
 
 	echo $sql;
-	
+
 	if ($result->num_rows > 0) {
 	    // output data of each row
 	    unset($playlists); // $foo is gone
@@ -30,7 +30,7 @@
 	    	echo 
 	    	"<tr>".
 	    	"<td>".
-	    		"<img src'' alt='". $row["name"] . "'>".
+	    		"<span id='playlistICO'>". $row["name"] . "</span>".
 	    	"</td>".
 	    	"<td>".
 				"<a class='playlist' 
