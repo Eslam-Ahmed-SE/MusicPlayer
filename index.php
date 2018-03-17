@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(!isset($_SESSION['signedin'])){
+	header("location: player.php");
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,27 +28,11 @@ session_start();
 				<input id="search" type="text" name="search" placeholder="Search song name, artist or album" autocomplete="off" onkeyup="searchChange();">
 				<datalist id="datalist">
 				</datalist>
-				<button type="button" id="about" 
-				<?php 
-				if (isset($_SESSION["signedin"])){
-					if ( $_SESSION["signedin"] == 1 ) {
-						# code...
-						echo "
-							onclick='changeBody3()'
-							style='	background: #f0f0f0 url(" . $_SESSION["img"] . ") 0px 0px; 
-										background-size: 30px 30px;
-										border-radius:50%;'>";
-					}
-				}
-				?>
+				<button type="button" id="about" onclick='changeBody3()'
+							style='	background: #f0f0f0 url( <?php echo "'" . $_SESSION["img"]; . "'" ?>) 0px 0px; 
+									background-size: 30px 30px;
+									border-radius:50%;'>
 				
-				<?php 
-				if (!isset($_SESSION["signedin"])){
-					echo "
-					onclick='location.href=\"form.php\";'>
-					<i class='fas fa-user-plus'></i>";					
-				}
-				?>
 
 				</button>
 				<button type="button" id="about" onclick="changeBody2()"><i class="fas fa-info-circle"></i></button>
