@@ -2,6 +2,9 @@
 
 A simple app to play music files.
 
+17032018	added playlists (BUG: next, previous only works in default All playlist)
+			added non loged in mode
+
 14032018	added users, signup, login.
 
 13032018	added signup.php
