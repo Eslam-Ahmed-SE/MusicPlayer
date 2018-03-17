@@ -1,8 +1,17 @@
 <?php
+		session_start();
+
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
 		$dbname = "player";
+
+		if (isset($_POST["playlistID"])){
+			$playlistID = test_input($_POST["playlistID"]);
+			$sql = "SELECT * FROM playlist_elements INNER JOIN songs ON playlist_elements.songID=songs.id WHERE playlistID=" . $playlistID;
+		}
+		else $sql = "SELECT * FROM songs;";
+
 
 		// Create connection
 		$conn = new mysqli($servername, $username, $password, $dbname);
@@ -11,7 +20,8 @@
 		    die("Connection failed: " . $conn->connect_error);
 		} 
 
-		$sql = "SELECT * FROM songs";
+
+
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
@@ -129,4 +139,14 @@
 		    echo "0 results";
 		}
 		$conn->close();
+
+
+		function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+
 		?>
