@@ -3,6 +3,8 @@ session_start();
 if(!isset($_SESSION['signedin'])){
 	header("location: player.php");
 }
+
+$_SESSION["playlist"]=0;
 ?>
 <!doctype html>
 <html lang="en">

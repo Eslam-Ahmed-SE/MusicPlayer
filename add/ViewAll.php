@@ -1,25 +1,13 @@
 <?php
 		session_start();
+		if(!isset($_SESSION['signedin'])){
+			header("location: player.php");
+		}
 
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
 		$dbname = "player";
-
-		if (isset($_POST["playlistID"]) && isset($_SESSION['signedin'])){
-			$playlistID = test_input($_POST["playlistID"]);
-			if ($playlistID>0) {
-				$sql = "SELECT * FROM playlist_elements INNER JOIN songs ON playlist_elements.songID=songs.id WHERE playlistID=" . $playlistID;
-			}
-			else if ($playlistID==-1) {
-				$sql = "SELECT * FROM playlist_elements INNER JOIN songs ON playlist_elements.songID=songs.id WHERE playlistID=" . $_SESSION["playlist"];
-			}
-			else {
-				$sql = "SELECT * FROM songs;";
-			}
-		}
-		else $sql = "SELECT * FROM songs;";
-
 
 		// Create connection
 		$conn = new mysqli($servername, $username, $password, $dbname);
@@ -27,6 +15,26 @@
 		if ($conn->connect_error) {
 		    die("Connection failed: " . $conn->connect_error);
 		} 
+		
+		$last_id = 0;
+		$sql2 = "SELECT * FROM playlists";
+		$result = $conn->query($sql2);
+		if ($result->num_rows > 0) {
+		    // output data of each row
+		    while($row = $result->fetch_assoc()) {
+		            $last_id = $row["playlistID"];
+		    }
+		} 
+		else {
+		    $last_id = 0;
+		}
+		$last_id++;
+
+		
+
+
+		$sql = "SELECT * FROM songs;";
+
 
 
 
@@ -36,9 +44,16 @@
 		    // output data of each row
 		    while($row = $result->fetch_assoc()) {
 		        echo 
+
+		        	
+					
 		    		"<tr>".
 		    			"<td id='ico" . $row["id"] . "'>".
-		    				
+
+		    				"
+													
+							<button id='addSongToPL' onclick='addSTPL(" . $row['id'] . ")' style='display:initial;'>+</button>
+							".
 		    			"</td>".
 
 		    			/*"<td>".

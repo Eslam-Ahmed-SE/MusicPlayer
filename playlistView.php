@@ -7,14 +7,7 @@
     			. "<span id='playlistICO'>all</span>".
     		"</a>" .
     	"</td>
-    	<td>
-    	<a class='playlist' href='add-playlists.php'>
-			<span id='playlistICO'>
-				Add
-				<i class='fas fa-plus'></i>
-			</span>
-		</a>
-		</td>";
+    	";
 	}
 	else {
 
@@ -62,14 +55,7 @@
 	    	"</td>";
 	    	
 		}
-		echo "
-		<a class='playlist' href='add-playlists.php'>
-			<span id='playlistICO'>
-				Add
-				<i class='fas fa-plus'></i>
-			</span>
-		</a>
-		</tr>";
+		
 	} 
 	else {
 	    echo "<td>".

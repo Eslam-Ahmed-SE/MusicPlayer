@@ -176,8 +176,7 @@ function playlistView(){
      // We get the element having id of display_info and put the response inside it
      $( '#playlistTable' ).html("<tr><td style='border-bottom: 1px solid rgba(255, 255, 255, 0.25) ;'>PlayLists</td><td></td></tr>");
      $( '#playlistTable' ).append(response);
-     $( '#playlistTable' ).append("<tr><td colspan='2'><a href='add-new.php' style='text-decoration: none;' > <i class='fas fa-plus-circle'></i> Add new song</a></td></tr>");
-    }
+     $( '#playlistTable' ).append("<td><a class='playlist' href='add/add-playlists.php'><span id='playlistICO'>Add <i class='fas fa-plus'></i></span></a></td></tr>");    }
   }
   });
 
