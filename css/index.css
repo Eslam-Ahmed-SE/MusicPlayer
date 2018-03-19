@@ -195,30 +195,30 @@ audio#player {
     cursor: pointer;
 }
 
-#playlistTable tr:first-child td
+#playlistTable tr:first-child td,
 #viewAddedTable tr:first-child td {
     border-bottom: 1px solid rgba(255, 255, 255, 0.25) ;
     cursor: pointer;
     padding: 0;
 }
 
-#playlistTable tr:first-child td:first-child 
+#playlistTable tr:first-child td:first-child,
 #viewAddedTable tr:first-child td:first-child {
     border-bottom: 0;
 }
 
-#playlistTable td:first-child 
+#playlistTable td:first-child,
 #viewAddedTable td:first-child {
     width: 10%;
 }
 
-#playlistTable td:second-child 
+#playlistTable td:second-child,
 #viewAddedTable td:second-child {
     width: 80%;
 }
 
 
-#playlistTable td:last-child 
+#playlistTable td:last-child,
 #viewAddedTable td:last-child {
     width: 10%;
 }
@@ -514,6 +514,10 @@ option {
     width: 100%;
 }
 
+#emptySpace {
+    height: 50px;
+}
+
 #save {
     position: relative;
     margin-left: 48%;
@@ -526,6 +530,7 @@ option {
     font-size: 1em;
     text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 0px 20px 0 rgba(0, 0, 0, 0.1);
+    font-family: 'Coming Soon', cursive;
 }
 
 #save:focus,
@@ -565,6 +570,79 @@ option {
     background-color: rgba(0,0,0,0);
     color: white;
     font-size: 1em;
+    font-family: 'Coming Soon', cursive;
     text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 0px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+#newPlaylistContainer {
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 10%;
+    padding-bottom: 2%;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 0px 20px 0 rgba(0, 0, 0, 0.1);
+    color: white;
+    font-size: 1em;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Coming Soon', cursive;
+}
+
+#newPlaylistContainer input{
+    font-family: 'Coming Soon', cursive;
+    width: 50%;
+    border: 0;
+    height: 30px;
+    background-color: rgba(0,0,0,0);
+    float: left;
+    margin-left: 25%;
+    color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#newPlaylistContainer input::placeholder {
+    color: white;
+    opacity: .5;
+}
+
+#newPlaylistContainer input:focus {
+  outline: none;
+  border-bottom: 1px solid white;
+}
+
+#newPlaylistContainer input:hover {
+  border-bottom: 1px solid white;
+}
+
+#newPlaylistContainer input:-webkit-autofill,
+#newPlaylistContainer input:-webkit-autofill:hover,
+#newPlaylistContainer input:-webkit-autofill:focus,
+#newPlaylistContainer input:-webkit-autofill:active {
+    -webkit-transition-delay: 99999s;
+}
+
+#newPlaylistContainer button {
+    border: 1px solid white;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 1em;
+    font-family: 'Coming Soon', cursive;
+}
+
+#newPlaylistContainer button:focus {
+    background-color: rgba(255,255,255,.2);
+    border: 2px solid white;
+    outline: none;
+}
+
+#newPlaylistContainer button:hover {
+    background-color: rgba(255,255,255,.2);
+    border: 2px solid white;
+    outline: none;
 }

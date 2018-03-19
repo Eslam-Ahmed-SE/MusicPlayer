@@ -55,101 +55,17 @@
 							<button id='addSongToPL' onclick='addSTPL(" . $row['id'] . ")' style='display:initial;'>+</button>
 							".
 		    			"</td>".
-
-		    			/*"<td>".
-		    				"<a class='song' 
-		    					onclick='playThis(\""	
-		    						. $row["link"] . "\",\"" 
-		    						. $row["name"] . "\",\"" 
-		    						. $row["artist"] . "\",\"" 
-		    						. $row["album"] . "\",\"" 
-		    						. $row["img"] . "\","
-		    						. $row["id"] . ")'
-		    					id='". $row["id"] . "'>" 
-		    					. $row["id"] . 
-		    				"</a>" . 
-		    			"</td>".
-
-		    			"<td>".
-		    				"<a class='song' 
-		    					onclick='playThis(\""	
-		    						. $row["link"] . "\",\"" 
-		    						. $row["name"] . "\",\"" 
-		    						. $row["artist"] . "\",\"" 
-		    						. $row["album"] . "\",\"" 
-		    						. $row["img"] . "\","
-		    						. $row["id"] . ")'
-		    					id='". $row["id"] . "'>" 
-		    					. $row["link"] . 
-		    				"</a>" .
-		    			"</td>".*/
-
-		    			/*"<td>".
-		    				"<a class='song' 
-		    					onclick='playThis(\""	
-		    						. $row["link"] . "\",\"" 
-		    						. $row["name"] . "\",\"" 
-		    						. $row["artist"] . "\",\"" 
-		    						. $row["album"] . "\",\"" 
-		    						. $row["img"] . "\","
-		    						. $row["id"] . ")'
-		    					id='". $row["id"] . "'>" 
-		    					. "<img width='40px' src='" .$row["img"] . "'" . 
-		    				"</a>" .
-		    			"</td>".*/
 		    			
 		    			"<td>".
 		    				"<a class='song' 
-		    					onclick='playThis(\""	
-		    						. $row["link"] . "\",\"" 
-		    						. $row["name"] . "\",\"" 
-		    						. $row["artist"] . "\",\"" 
-		    						. $row["album"] . "\",\"" 
-		    						. $row["img"] . "\","
-		    						. $row["id"] . ")'
-		    					id='". $row["id"] . "'>" 
+		    					onclick='addSTPL(" . $row['id'] . ")'>" 
 		    					. $row["name"] . 
 		    				"</a>" .
 		    			"</td>".
 
-		    			/*"<td>".
-		    				"<a class='song' 
-		    					onclick='playThis(\""	
-		    						. $row["link"] . "\",\"" 
-		    						. $row["name"] . "\",\"" 
-		    						. $row["artist"] . "\",\"" 
-		    						. $row["album"] . "\",\"" 
-		    						. $row["img"] . "\","
-		    						. $row["id"] . ")'
-		    					id='". $row["id"] . "'>" 
-		    					. $row["artist"] . 
-		    				"</a>" .
-		    			"</td>".*/
-
-		    			/*"<td>".
-		    				"<a class='song' 
-		    					onclick='playThis(\""	
-		    						. $row["link"] . "\",\"" 
-		    						. $row["name"] . "\",\"" 
-		    						. $row["artist"] . "\",\"" 
-		    						. $row["album"] . "\",\"" 
-		    						. $row["img"] . "\","
-		    						. $row["id"] . ")'
-		    					id='". $row["id"] . "'>" 
-		    					. $row["album"] . 
-		    				"</a>" .
-		    			"</td>".*/
-
-
 		    			"<td>".
 		    				"<a class='song' 
-		    					onclick='playThis(\""	
-		    						. $row["link"] . "\",\"" 
-		    						. $row["name"] . "\",\"" 
-		    						. $row["artist"] . "\",\"" 
-		    						. $row["album"] . "\",\"" 
-		    						. $row["img"] . "\","
-		    						. $row["id"] . ")'
+		    					onclick='addSTPL(" . $row['id'] . ")'
 		    					id='". $row["id"] . "'>" 
 		    					. $row["played"] . 
 		    				"</a>" .
@@ -159,7 +75,7 @@
 		    }
 		} 
 		else {
-		    echo "0 results";
+		    echo "<tr> <td></td><td>0 results</td><td></td>";
 		}
 		$conn->close();
 

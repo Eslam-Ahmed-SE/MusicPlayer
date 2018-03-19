@@ -19,14 +19,17 @@ if(!isset($_SESSION['signedin'])){
 	<script src="../js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
-	<div id="leftTable">
-		<form method='post' id='newPlaylist' autocomplete='off'>
-			
-			Playlist name:
-			<input id='playlist' type='text' name='playlist' placeholder='Playlist' autocomplete='off' required></td>
-			<button id='addPlaylist'>Add</button>
-		</form>
-	</div>
+		<div id="newPlaylistContainer">
+			<form method='post' id='newPlaylist' autocomplete='off'>
+				
+				<h1>Playlist name</h1>
+				<input id='playlist' type='text' name='playlist' placeholder='Playlist Name' autocomplete='off' required>
+				<br>
+				<br>
+				<br>
+				<button id='addPlaylist'>Add</button>
+			</form>
+		</div>
 
 
 

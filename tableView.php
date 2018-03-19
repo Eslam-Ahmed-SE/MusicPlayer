@@ -144,7 +144,7 @@
 		    }
 		} 
 		else {
-		    echo "0 results";
+		    echo "<tr> <td></td><td>0 results</td><td></td>";
 		}
 		$conn->close();
 

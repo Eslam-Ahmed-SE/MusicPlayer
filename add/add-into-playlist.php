@@ -19,6 +19,8 @@ if(!isset($_SESSION['signedin'])){
 	<script src="../js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
+
+	<br id="emptySpace">
 	<div id="leftTable">
 		<table id="viewAddedTable">
 		</table>
