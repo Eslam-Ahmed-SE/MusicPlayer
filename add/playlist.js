@@ -22,10 +22,6 @@ $.ajax({
 	   // We get the element having id of display_info and put the response inside it
 	   $( '#viewAddedTable' ).html("<tr><td><a onclick='playlistView()'> <i class='fas fa-arrow-left'></i> </a></td><td>Name</td><td>Played</td></tr>");
 	   $( '#viewAddedTable' ).append(response);
-	   $( '#viewAddedTable' ).append(
-               		/*"<tr><td style='color: green; background-color: #f2f2f2;'></td><td style='color: green; background-color: #f2f2f2; text-align: center;' colspan='4' rowspan='2'><a href='add-new.php' style='text-decoration: none;color: green;' > <i class='fas fa-plus-circle'></i> Add new song</a></td><td style='color: green; background-color: #f2f2f2;'></td></tr> <tr><td style='color: green; background-color: #f2f2f2;'></td><td style='color: green; background-color: #f2f2f2;'></td></tr>"*/
-               		"<tr><td></td><td rowspan='2'><a href='add-new.php' style='text-decoration: none;' > <i class='fas fa-plus-circle'></i> Add new song</a></td><td></td></tr> <tr><td></td><td></td></tr>"
-               	);
   	
   }
   });
@@ -42,10 +38,6 @@ function tableView(playlistID){
 	   // We get the element having id of display_info and put the response inside it
 	   $( '#playlistTable' ).html("<tr><td><a onclick='playlistView()'> <i class='fas fa-arrow-left'></i> </a></td><td>Name</td><td>Played</td></tr>");
 	   $( '#playlistTable' ).append(response);
-	   $( '#playlistTable' ).append(
-               		/*"<tr><td style='color: green; background-color: #f2f2f2;'></td><td style='color: green; background-color: #f2f2f2; text-align: center;' colspan='4' rowspan='2'><a href='add-new.php' style='text-decoration: none;color: green;' > <i class='fas fa-plus-circle'></i> Add new song</a></td><td style='color: green; background-color: #f2f2f2;'></td></tr> <tr><td style='color: green; background-color: #f2f2f2;'></td><td style='color: green; background-color: #f2f2f2;'></td></tr>"*/
-               		"<tr><td></td><td rowspan='2'><a href='add-new.php' style='text-decoration: none;' > <i class='fas fa-plus-circle'></i> Add new song</a></td><td></td></tr> <tr><td></td><td></td></tr>"
-               	); 
  	  }
   });
 
@@ -91,7 +83,7 @@ function addSTPL(i) {
            success: function(data)
            {
            	console.log(data);
-           		$( '#info' ).html(data);
+           		$( '#Addinfo' ).html(data);
            		viewAddedTable();
 
            }

@@ -173,7 +173,7 @@ audio#player {
 
 /*---------------------------------------------*/
 
-#playlistTable {
+#playlistTable, #viewAddedTable {
     display: block;
     float: right;
     margin-right: 5%;
@@ -182,11 +182,12 @@ audio#player {
     overflow-y: hidden;
 }
 
-#playlistTable:hover {
+#playlistTable:hover, #viewAddedTable:hover {
     overflow-y: scroll;
 }
 
-#playlistTable td, #playlistTable td a {
+#playlistTable td, #playlistTable td a,
+#viewAddedTable td, #viewAddedTable td a {
     padding-top: 15px;
     padding-bottom: 15px;
     color: white;
@@ -194,26 +195,31 @@ audio#player {
     cursor: pointer;
 }
 
-#playlistTable tr:first-child td {
+#playlistTable tr:first-child td
+#viewAddedTable tr:first-child td {
     border-bottom: 1px solid rgba(255, 255, 255, 0.25) ;
     cursor: pointer;
     padding: 0;
 }
 
-#playlistTable tr:first-child td:first-child {
+#playlistTable tr:first-child td:first-child 
+#viewAddedTable tr:first-child td:first-child {
     border-bottom: 0;
 }
 
-#playlistTable td:first-child {
+#playlistTable td:first-child 
+#viewAddedTable td:first-child {
     width: 10%;
 }
 
-#playlistTable td:second-child {
+#playlistTable td:second-child 
+#viewAddedTable td:second-child {
     width: 80%;
 }
 
 
-#playlistTable td:last-child {
+#playlistTable td:last-child 
+#viewAddedTable td:last-child {
     width: 10%;
 }
 
@@ -491,4 +497,74 @@ option {
     background-color: rgba(255,255,255,.2);
     border: 2px solid white;
     outline: none;
+}
+
+#leftTable,
+#rightTable {
+    display: inline-block;
+    width: 40%;
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+#leftTable table,
+#rightTable table {
+    float: initial;
+    display: inline-block;
+    width: 100%;
+}
+
+#save {
+    position: relative;
+    margin-left: 48%;
+    width: 4%;
+    border: 1px solid white;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    font-size: 1em;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 0px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+#save:focus,
+#addSongToPL:focus {
+    background-color: rgba(255,255,255,.2);
+    border: 2px solid white;
+    outline: none;
+}
+
+#save:hover,
+#addSongToPL:hover {
+    background-color: rgba(255,255,255,.2);
+    border: 2px solid white;
+    outline: none;
+}
+
+#addSongToPL {
+    border: 1px solid white;
+    margin-right: 5px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    font-size: 1em;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 0px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+#Addinfo {
+    position: relative;
+    text-align: center;
+    padding-top: 5px;
+    margin-left: 46%;
+    margin-top: 50px;
+    width: 8%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    font-size: 1em;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.65);
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1), 0 0px 20px 0 rgba(0, 0, 0, 0.1);
 }

@@ -20,10 +20,8 @@ if(!isset($_SESSION['signedin'])){
 </head>
 <body>
 	<div id="leftTable">
-		<p id="info"></p>
 		<table id="viewAddedTable">
 		</table>
-		<button id="save">Save</button>
 
 
 	</div>
@@ -33,6 +31,8 @@ if(!isset($_SESSION['signedin'])){
 		</table>
 	</div>
 
+		<p id="Addinfo">Add More</p>
+		<button id="save">Save</button>
 
 
 	<script src="playlist.js"></script>
